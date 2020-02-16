@@ -1,4 +1,4 @@
-Initialize yarn directory
+Initialize yarn directory.
 
 ```
 yarn init
@@ -17,7 +17,7 @@ When asked, set entry point ("main") as `main.js`. If not asked, add it to
 } 
  ``` 
 
-Install electron
+Install electron.
 
 ``` 
 yarn add --dev electron
@@ -62,4 +62,12 @@ function createMainWindow() {
 }
 
 app.on('ready', createMainWindow); 
+```
+
+Add script to `package.json` to start electron from yarn.
+
+```
+  "scripts": {
+    "start": "electron ."
+  }, 
 ```
