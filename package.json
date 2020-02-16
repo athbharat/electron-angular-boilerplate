@@ -1,0 +1,10 @@
+{
+  "name": "electronEightNgNineBoilerPlate",
+  "version": "1.0.0",
+  "description": "Core code required to run Angular 9 within Electron.",
+  "main": "main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^8.0.1"
+  }
+}
