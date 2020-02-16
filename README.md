@@ -71,3 +71,15 @@ Add script to `package.json` to start electron from yarn.
     "start": "electron ."
   }, 
 ```
+
+Install angular cli.
+
+```
+yarn add --dev @angular/cli 
+```
+
+Create a symlink for `ng` binary.
+
+```
+ln -s node_modules/.bin/ng ng
+```
