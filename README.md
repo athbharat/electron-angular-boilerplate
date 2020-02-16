@@ -176,4 +176,13 @@ Change the `<base>` tag of the angular `index.html` from `<base href="/">` to
 that all generated dist files (`polyfills...js`, `main...js`, `vendor...js` 
 etc.) can be found by the app.
 
-Remove the initial temporary `index.html` file from the project root level. 
+Remove the initial temporary `index.html` file from the project root level.
+
+Add script to `package.json` that builds before launching electron. Use double
+ampersand `&&` for sequential execution as opposed to single ampersand
+`&` for parallel execution.
+ 
+ ```
+    "build-start": "ng build && electron .", 
+ ``` 
+ 
