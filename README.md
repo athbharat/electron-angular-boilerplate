@@ -64,7 +64,9 @@ function createMainWindow() {
 app.on('ready', createMainWindow); 
 ```
 
-Add script to `package.json` to start electron from yarn.
+Add script to `package.json` to use yarn to run this directory as an electron
+application. (`npm`/`yarn` will search the `node_modules/.bin/` directory
+for corresponding binaries by default.)
 
 ```
   "scripts": {
