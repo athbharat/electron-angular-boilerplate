@@ -78,17 +78,16 @@ Install angular cli.
 yarn add --dev @angular/cli 
 ```
 
-Create a symlink for `ng` binary.
-
-```
-ln -s node_modules/.bin/ng ng
-```
-
 Add script to `package.json` to execute `ng` binary.
 
 ```
   "scripts": {
     "start": "electron .",
-    "ng": "./ng"
+    "ng": "ng"
   },
+```
+
+Create new Angular app.
+```
+yarn ng new ng-app 
 ```

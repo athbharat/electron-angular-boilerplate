@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "ng": "./ng"
+    "ng": "ng"
   },
   "devDependencies": {
     "@angular/cli": "^9.0.2",
