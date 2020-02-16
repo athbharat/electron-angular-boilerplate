@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "description": "Core code required to run Angular 9 within Electron.",
   "main": "main.js",
-  "license": "",
+  "license": "(c) Sean Reed. All rights reserved.",
   "private": true,
   "scripts": {
     "start": "electron .",

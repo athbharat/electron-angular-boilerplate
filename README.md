@@ -139,6 +139,41 @@ yarn serve --open
 Remove the temporary `ng-app` directory with the old angular `package.json` 
 and `node_modules`. Serve angular again to ensure it all still works.
 
+Modify `angular.json` to reflect new `$schema` route:
 
+```
+"$schema": "./node_modules/@angular/cli/lib/config/schema.json"
+```
 
+Build (in dev mode) the angular app explicitly to create the `dist` folder. 
+This will be the folder referenced in the electron `main.js` script. 
 
+```
+yarn build 
+```
+
+Change the electron `main.js` window reference to point to the built angular
+ `index.html`. First import `url` and `path`.
+ 
+ ```
+ const url = require('url');
+ const path = require('path');
+ ```
+
+Then change the browser window to load a url not a file, and point to the
+ `index.html` built by angular and output to `dist/ng-app`.
+
+```
+   mainWindow.loadURL(url.format({
+     pathname: path.join(__dirname, 'dist/ng-app', 'index.html'),
+     protocol: 'file:',
+     slashes: true,
+   }));
+```
+
+Change the `<base>` tag of the angular `index.html` from `<base href="/">` to
+`<base href="./">` (with the dot, not just the slash) and rebuild to ensure
+that all generated dist files (`polyfills...js`, `main...js`, `vendor...js` 
+etc.) can be found by the app.
+
+Remove the initial temporary `index.html` file from the project root level. 
