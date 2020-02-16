@@ -1,10 +1,10 @@
 {
-  "name": "electronEightNgNineBoilerPlate",
+  "name": "electronAngularBoilerplate",
   "author": "Sean Reed",
   "version": "0.0.0",
-  "description": "Core code required to run Angular 9 within Electron.",
+  "description": "Core code to run an Angular 9 app within Electron 8.",
   "main": "main.js",
-  "license": "(c) Sean Reed. All rights reserved.",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "start": "electron .",
@@ -14,7 +14,35 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "electron-builder install-app-deps",
+    "ebm": "ng build --prod && electron-builder --mac",
+    "ebw": "ng build --prod && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.example.elngapp",
+    "productName": "El NG App",
+    "copyright": "Copyright (c) #### NNN NNN",
+    "directories": {
+      "output": "build",
+      "app": "."
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32",
+            "x64"
+          ]
+        }
+      ]
+    }
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.900.2",
@@ -26,6 +54,7 @@
     "@types/node": "^13.7.1",
     "codelyzer": "^5.2.1",
     "electron": "^8.0.1",
+    "electron-builder": "^22.3.2",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "^4.2.1",
     "karma": "^4.4.1",
