@@ -21,12 +21,19 @@
   },
   "build": {
     "appId": "com.example.elngapp",
-    "productName": "El NG App",
+    "productName": "ElNg",
     "copyright": "Copyright (c) #### NNN NNN",
     "directories": {
       "output": "build",
       "app": "."
     },
+    "files": [
+      "dist",
+      "main.js",
+      "package.json",
+      "!node_modules"
+    ],
+    "asar": true,
     "mac": {
       "target": [
         "dmg"

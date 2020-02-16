@@ -275,3 +275,52 @@ app on Mac, `electron-builder` will download Wine.
 
 Build by running `yarn ebm` or `yarn ebw`. Builds are output to the `builds` 
 directory (will be created if not exists).
+
+Specify which files and directories to include and exclude using the `"files":`
+property of the `electron-builder` configuration. Include `main.js`, 
+`package.json`, and `dist`, and exclude `node_modules` in total. Since we can
+use the Angular compiler in `prod` mode to build and shake everything, the
+`dist` folder already contains everything we need for the Angular app. If we
+add further files or folders to the Electron portion of the app in the future, 
+they should be specified here too. This greatly reduces the app's final file
+size (but not it's RAM requirements). 
+
+Also set `"asar": true` to "mitigate issues around long path names on Windows, 
+slightly speed up require and conceal your source code from cursory
+inspection".  
+
+```
+"build": {
+    "appId": "com.example.elngapp",
+    "productName": "ElNg",
+    "copyright": "Copyright (c) #### NNN NNN",
+    "directories": {
+      "output": "build",
+      "app": "."
+    },
+    "files": [
+      "dist",
+      "main.js",
+      "package.json",
+      "!node_modules"
+    ],
+    "asar": true,
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32",
+            "x64"
+          ]
+        }
+      ]
+    }
+  }, 
+```
+
