@@ -184,5 +184,7 @@ ampersand `&&` for sequential execution as opposed to single ampersand
  
  ```
     "build-start": "ng build && electron .", 
- ``` 
- 
+ ```
+
+Running `yarn build-start` now should build the angular project, output it to
+the `dist` directory, and launch it within electron.
