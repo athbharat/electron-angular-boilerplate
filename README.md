@@ -1,8 +1,28 @@
-# Steps I took to get here.
+## Getting up and running.
 
-## This was done on macOS 10.14.6.
+Fetch source.
 
-Initialize project root as yarn directory.
+```
+git clone git@github.com:seanareed/electronEightNgNineBoilerPlate.git 
+```
+
+Install dependencies.
+
+```
+yarn install 
+```
+
+Build Angular app and start Electron.
+
+```
+yarn build-start 
+```
+
+## Steps I took to get here.
+
+### This was done on macOS 10.14.6 with Electron 8 and Angular 9.
+
+Initialize empty project root as yarn directory.
 
 ```
 yarn init
@@ -69,7 +89,7 @@ function createMainWindow() {
 app.on('ready', createMainWindow); 
 ```
 
-Add script to `package.json` to use yarn to run this directory as an Electron
+Add script to `package.json` to use `yarn` to run this directory as an Electron
 application. (`npm`/`yarn` will search the `node_modules/.bin/` directory
 for corresponding binaries by default.)
 
@@ -127,7 +147,7 @@ Merge the Angular `package.json` file into the Electron `package.json` file
 manually by using `yarn add` at the command line for each dependency. 
 
 Add Angular scripts to `package.json`. Adjust the `e2e` route. Change the
-Angular `start` script to `serve`.
+Angular `start` script to be called `serve`.
 
 ```
   "scripts": {
@@ -190,9 +210,9 @@ etc.) can be found by the app.
 
 Remove the initial temporary `index.html` file from the project root level.
 
-Add script to `package.json` that builds before launching Electron. Use double
-ampersand `&&` for sequential execution as opposed to single ampersand
-`&` for parallel execution.
+Add script to `package.json` that builds the Angular app before launching
+Electron. Use double ampersand `&&` for sequential execution as opposed to
+single ampersand `&` for parallel execution.
  
  ```
     "build-start": "ng build && electron .", 
@@ -246,9 +266,12 @@ ensure that native dependencies are always matched to the Electron version.
 
 Add scripts to `package.json` for building the app in Mac and Windows formats. 
 This builds the Angular app in production mode first. When building a Windows
-app on Mac, `electron-builder` will download Wine.
+app on Mac, `electron-builder` will download Wine. 
 
 ```
     "ebm": "ng build --prod && electron-builder --mac",
     "ebw": "ng build --prod && electron-builder --win", 
 ```
+
+Build by running `yarn ebm` or `yarn ebw`. Builds are output to the `builds` 
+directory (will be created if not exists).
