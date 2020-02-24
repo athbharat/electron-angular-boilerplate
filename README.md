@@ -1,3 +1,18 @@
+## Electron and Angular
+
+[Electron](https://www.electronjs.org/) is an open source library developed by
+[GitHub](https://github.com/) for building cross-platform desktop
+applications with HTML, CSS, and JavaScript. It is licensed under the [MIT
+License](https://github.com/electron/electron/blob/master/LICENSE).
+
+[Angular](https://angular.io/) is an app-design framework and development
+platform for creating efficient and sophisticated single-page apps using
+TypeScript/JavaScript and other languages. It too is licensed under an 
+[MIT-style license](https://angular.io/license). 
+
+This boilerplate code provides the core resources for embedding an Angular
+app within an Electron app.
+
 ## Getting up and running.
 
 Fetch source.
